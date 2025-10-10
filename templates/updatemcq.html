@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Update MCQ Question</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/slick.css"/>
+    <link href="/static/css/tooplate-little-fashion.css" rel="stylesheet">
+
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .overlay {
+            position: relative;
+        }
+        .overlay img {
+            width: 100%;
+            height: auto;
+        }
+        .overlay .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        .form-floating {
+            margin-bottom: 1rem;
+        }
+        .btn.custom-btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn.custom-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <section class="preloader">
+        <div class="spinner">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </section>
+    <main>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container" style="padding-right: 1230px; height: 71px; border-right-width: 24px; border-top-width: 6px;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><strong><span>CAMPUS </span>PLACEMENT</strong></a>
+                <div class="d-lg-none">
+                    <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+                    <a href="product-detail.html" class="bi-bag custom-icon"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('add_question')}}">Add Interview Questions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('manage_question')}}">Manage Interview Questions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('add_drive')}}">Add Drive Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('viewdrive')}}">View Drive Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('viewrequestback')}}">View College Drive Requests</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">Shortlist Candidates</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="overlay">
+            <img src="/static/images/slideshow/two-business-partners-working-together-office-computer.jpeg" class="img-fluid" alt="">
+            <div class="form-container">
+                <h1 class="text-center mb-5">Update MCQ Question</h1>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('updatemcqback') }}" method="POST">
+                    <input type="hidden" class="form-control bg-light border-0 px-4" name="Id" id="Id" value="{{Id}}" placeholder="Enter Crop Name" style="height: 55px;border-radius:20px;">
+                    <div class="form-group">
+                        <label for="question">Question:</label>
+                        <input type="text" name="question" id="question" value="{{data[0][2]}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="option1">Option 1:</label>
+                        <input type="text" name="option1" id="option1" value="{{data[0][3]}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="option2">Option 2:</label>
+                        <input type="text" name="option2" id="option2" value="{{data[0][4]}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="option3">Option 3:</label>
+                        <input type="text" name="option3" id="option3" value="{{data[0][5]}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="option4">Option 4:</label>
+                        <input type="text" name="option4" id="option4" value="{{data[0][6]}}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correct_option">Correct Option:</label>
+                        <select id="correct_option" name="correct_option" class="form-control" required>
+                            <option value="option1" {% if data[0][7] == 'option1' %}selected{% endif %}>Option 1</option>
+                            <option value="option2" {% if data[0][7] == 'option2' %}selected{% endif %}>Option 2</option>
+                            <option value="option3" {% if data[0][7] == 'option3' %}selected{% endif %}>Option 3</option>
+                            <option value="option4" {% if data[0][7] == 'option4' %}selected{% endif %}>Option 4</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Update Question</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/Headroom.js"></script>
+    <script src="/static/js/jQuery.headroom.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/custom.js"></script>
+</body>
+</html>

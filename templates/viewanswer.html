@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Company Registration</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/slick.css"/>
+        <link href="/static/css/tooplate-little-fashion.css" rel="stylesheet">
+
+        <style>
+            .container {
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .overlay {
+                position: relative;
+            }
+
+            .overlay img {
+                width: 100%;
+                height: auto;
+            }
+
+            .overlay .form-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                width: 100%;
+            }
+
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+
+            .btn.custom-btn {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            .btn.custom-btn:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Company Registration</title>
+        <!-- Bootstrap CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Custom styles for this template -->
+        <style>
+            .overlay {
+                position: relative;
+            }
+            .overlay img {
+                width: 100%;
+                height: auto;
+            }
+            .form-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 600px;
+            }
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+            .form-floating label {
+                color: #333; /* Darker color for labels */
+            }
+            .form-control {
+                color: #333; /* Darker color for input text */
+                background-color: #fff; /* Ensure the background is white */
+            }
+            .form-control::placeholder {
+                color: #666; /* Darker color for placeholder text */
+            }
+            .alert {
+                margin-bottom: 1rem;
+            }
+        </style>
+    </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Company Registration</title>
+        <!-- Bootstrap CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Custom styles for this template -->
+        <style>
+            .overlay {
+                position: relative;
+            }
+            .overlay img {
+                width: 100%;
+                height: auto;
+            }
+            .form-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 600px;
+            }
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+        </style>
+        <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/slick.css"/>
+    <link href="/static/css/tooplate-little-fashion.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .overlay {
+            position: relative;
+        }
+
+        .overlay img {
+            width: 100%;
+            height: auto;
+            opacity: 0.5; /* Optional: Adjust for overlay effect */
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: .5rem;
+            font-weight: bold;
+        }
+
+        .form-group textarea,
+        .form-group select,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: .5rem;
+            border-radius: .25rem;
+            border: 1px solid #ced4da;
+        }
+
+        .custom-btn {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+        }
+
+        .custom-btn:hover {
+            background-color: #0056b3;
+            color: #ffffff;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .card {
+            flex: 1;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+        <section class="preloader">
+            <div class="spinner">
+                <span class="sk-inner-circle"></span>
+            </div>
+        </section>
+
+        <main>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+                        <strong><span>CAMPUS </span>PLACEMENT</strong>
+                    </a>
+
+                    <div class="d-lg-none">
+                        <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                        <a href="product-detail.html" class="bi-bag custom-icon"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">Home</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('add_question')}}">Add Interview Questions</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('manage_question')}}">Manage Interview Questions</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('add_drive')}}">Add Drive Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('viewdrive')}}">View Drive Details</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('viewrequestback')}}">View College Drive Requests</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="products.html">Shortlist Candidates</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Logout</a>
+                            </li>
+                        </ul>
+        
+
+                        
+                    </div>
+                </div>
+            </nav>
+
+
+            <section class="overlay">
+                <img src="/static/images/slideshow/two-business-partners-working-together-office-computer.jpeg" class="img-fluid" alt="Business Partners">
+        
+                <div class="form-container" style="
+   
+    padding-top: 59px;
+    padding-bottom: 50px;
+
+"><h2 class="text-center mb-5">View Test Results</h2>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="card-container">
+    <!-- Add MCQ's Test Card -->
+    <div class="card">
+        <h2 class="text-center mb-5">View MCQ Test Results </h2>
+        <a href="{{url_for('view_student_answers')}}" class="btn custom-btn form-control mt-4 mb-3">Viwe Results</a>
+    </div>
+
+    <!-- Add Coding Test Card -->
+    <div class="card">
+        <h2 class="text-center mb-5">View Coding Test Results</h2>
+        <a href="{{url_for('viewanswerforcode')}}" class="btn custom-btn form-control mt-4 mb-3">View Results</a>
+    </div>
+</div>
+            </section>
+        
+            
+        </main><br><br>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-10 me-auto mb-4">
+                        <h4 class="text-white mb-3"><a href="index.html">Little</a> Fashion</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Little Fashion</strong></p>
+                        <br>
+                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    </div>
+                    <div class="col-lg-5 col-8">
+                        <h5 class="text-white mb-3">Sitemap</h5>
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">Story</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-4">
+                        <h5 class="text-white mb-3">Social</h5>
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                            <li><a href="#" class="social-icon-link bi-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/js/Headroom.js"></script>
+        <script src="/static/js/jQuery.headroom.js"></script>
+        <script src="/static/js/slick.min.js"></script>
+        <script src="/static/js/custom.js"></script>
+        <script src="/static/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

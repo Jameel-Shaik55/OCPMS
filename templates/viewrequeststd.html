@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Drive Details</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/slick.css"/>
+    <link href="/static/css/tooplate-little-fashion.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="preloader">
+        <div class="spinner">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </section>
+
+    <main>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <strong><span>CAMPUS </span>PLACEMENT</strong>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('add_question') }}">Add Interview Questions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('manage_question') }}">Manage Interview Questions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('add_drive') }}">Add Drive Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('viewdrive') }}">View Drive Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('viewrequestback') }}">View College Drive Requests</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">Shortlist Candidates</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="product-detail section-padding">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="alert alert-dismissible fade show" role="alert">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+                <div class="row">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        {% for row in rows %}
+                        <div class="col mb-4">
+                            <div class="card h-100 border-0 shadow" style="background-color: rgb(232, 232, 232);">
+                                <img src="{{ url_for('static', filename='profiles/' ~ row[13]) }}" class="card-img-top" alt="Profile Logo">
+                                <div class="card-body">
+                                    <h5 class="card-title">Student Name: {{ row[1] }}</h5>
+                                    <p class="card-text"><strong>Student Email:</strong> {{ row[2] }}</p>
+                                    <p class="card-text"><strong>Studing Year:</strong> {{ row[3] }}</p>
+                                    <p class="card-text"><strong>Tenth Marks:</strong> {{ row[4] }}</p>
+                                    <p class="card-text"><strong>Twelth Marks:</strong> {{ row[5] }}</p>
+                                    <p class="card-text"><strong>Current Marks:</strong> {{ row[6] }}</p>
+                                    <p class="card-text"><strong>Colege Name:</strong> {{ row[7] }}</p>
+                                    <p class="card-text"><strong>Department:</strong> {{ row[8] }}</p>
+                                    <p class="card-text"><strong>Position:</strong> {{ row[9] }}</p>
+                                    <p class="card-text"><strong>Location:</strong> {{ row[10] }}</p>
+                                    <a href="{{ url_for('stdaccept', id=row[0]) }}" class="btn btn-success">Accept Request</a>
+                                    <a href="{{ url_for('stdrejected', id=row[0]) }}" class="btn btn-danger">Reject Request</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-10 me-auto mb-4">
+                        <h4 class="text-white mb-3"><a href="index.html">Little</a> Fashion</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Little Fashion</strong></p>
+                        <br>
+                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    </div>
+                    <div class="col-lg-5 col-8">
+                        <h5 class="text-white mb-3">Sitemap</h5>
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">Story</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-4">
+                        <h5 class="text-white mb-3">Social</h5>
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                            <li><a href="#" class="social-icon-link bi-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/js/Headroom.js"></script>
+        <script src="/static/js/jQuery.headroom.js"></script>
+        <script src="/static/js/slick.min.js"></script>
+        <script src="/static/js/custom.js"></script>
+    </body>
+</html>

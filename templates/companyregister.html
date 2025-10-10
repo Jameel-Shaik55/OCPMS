@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Online recruitment simulation software </title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/static/css/slick.css"/>
+
+        <link href="/static/css/tooplate-little-fashion.css" rel="stylesheet">
+
+        <style>
+            
+            .container {
+                text-align: center; /* Center the text inside the container */
+            }
+            
+            .slick-title {
+                font-size: 2.5rem; /* Increase font size */
+                font-weight: bold; /* Make the text bold */
+                color: #343a40; /* Change text color */
+                padding: 20px; /* Add padding */
+                border-radius: 5px; /* Rounded corners */
+                background-color: #ffffff; /* White background for the title */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            }
+            
+            /* Optional: Adjust for different screen sizes */
+            @media (max-width: 768px) {
+                .slick-title {
+                    font-size: 2rem; /* Smaller font size on small screens */
+                }
+            }
+        </style>    
+
+        <style>
+            .container {
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .overlay {
+                position: relative;
+            }
+
+            .overlay img {
+                width: 100%;
+                height: auto;
+            }
+
+            .overlay .form-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                width: 100%;
+            }
+
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+
+            .btn.custom-btn {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            .btn.custom-btn:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Company Registration</title>
+        <!-- Bootstrap CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Custom styles for this template -->
+        <style>
+            .overlay {
+                position: relative;
+            }
+            .overlay img {
+                width: 100%;
+                height: auto;
+            }
+            .form-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 600px;
+            }
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+            .form-floating label {
+                color: #333; /* Darker color for labels */
+            }
+            .form-control {
+                color: #333; /* Darker color for input text */
+                background-color: #fff; /* Ensure the background is white */
+            }
+            .form-control::placeholder {
+                color: #666; /* Darker color for placeholder text */
+            }
+            .alert {
+                margin-bottom: 1rem;
+            }
+        </style>
+    </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Company Registration</title>
+        <!-- Bootstrap CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Custom styles for this template -->
+        <style>
+            .overlay {
+                position: relative;
+            }
+            .overlay img {
+                width: 100%;
+                height: auto;
+            }
+            .form-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 600px;
+            }
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+        </style>
+    </head>
+
+    <section class="preloader">
+        <div class="spinner">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </section>
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><strong>Online recruitment simulation software</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarLoginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Registraion
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarLoginDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('student') }}">Login as Student</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('companyregister') }}">Login as Company</a></li>
+                              
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <section class="overlay">
+                <img src="/static/images/slideshow/two-business-partners-working-together-office-computer.jpeg" class="img-fluid" alt="">
+                <div class="form-container">
+                    <h1 class="text-center mb-5">Company Registration</h1>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                        {% for category, message in messages %}
+                          <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+                    <form action="{{ url_for('companyregister') }}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="text" name="company_name" id="company_name" class="form-control" placeholder="Company Name" required>
+                            <label for="company_name">Company Name</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required>
+                            <label for="email">Email Address</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
+                            <label for="enter_password">Enter Password</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="password" name="con_password" id="con_password" class="form-control" placeholder="Conform Password" required>
+                            <label for="con_password">Conform Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                            <label for="phone">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="text" name="address" id="address" class="form-control" placeholder="Company Address" required>
+                            <label for="address">Company Address</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
+                            <label for="city">City</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="text" name="state" id="state" class="form-control" placeholder="State/Province" required>
+                            <label for="state">State/Province</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="text" name="postal_code" id="postal_code" class="form-control" placeholder="Postal Code" required>
+                            <label for="postal_code">Postal Code</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="text" name="country" id="country" class="form-control" placeholder="Country" required>
+                            <label for="country">Country</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="url" name="website" id="website" class="form-control" placeholder="Website URL">
+                            <label for="website">Website URL (optional)</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4 p-0">
+                            <textarea name="description" id="description" class="form-control" placeholder="Company Description" required></textarea>
+                            <label for="description">Company Description</label>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                        <div class="mb-4 p-0">
+                            <label for="logo" class="form-label">Company Logo (optional)</label>
+                            <input type="file" name="logo" id="logo" class="form-control">
+                        </div>
+                        <button type="submit" class="btn custom-btn form-control mt-4 mb-3">Register</button>
+                    </form>
+                </div>
+            </section>
+        </main><br><br>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-10 me-auto mb-4">
+                        <h4 class="text-white mb-3"><a href="index.html">Little</a> Fashion</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Little Fashion</strong></p>
+                        <br>
+                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    </div>
+                    <div class="col-lg-5 col-8">
+                        <h5 class="text-white mb-3">Sitemap</h5>
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">Story</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-4">
+                        <h5 class="text-white mb-3">Social</h5>
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                            <li><a href="#" class="social-icon-link bi-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/js/Headroom.js"></script>
+        <script src="/static/js/jQuery.headroom.js"></script>
+        <script src="/static/js/slick.min.js"></script>
+        <script src="/static/js/custom.js"></script>
+    </body>
+</html>

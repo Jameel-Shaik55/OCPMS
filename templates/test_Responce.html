@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .result-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .percentage {
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .message {
+            font-weight: bold;
+        }
+        .success {
+            color: #2ecc71;
+        }
+        .fail {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-card">
+        <h2>Test Feedback of {{ student_mail }}</h2>
+        <div class="percentage">Percentage: {{ percentage }}%</div>
+        {% if percentage >= 75 %}
+            <div class="message success">{{ message }}</div>
+        {% else %}
+            <div class="message fail">{{ message }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

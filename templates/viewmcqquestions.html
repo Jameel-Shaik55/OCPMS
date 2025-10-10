@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MCQ Questions</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-expand-lg">
+            <!-- Your Navbar content -->
+        </nav>
+
+        
+        <section class="product-detail section-padding">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="alert alert-dismissible fade show" role="alert">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+                <h2 class="mb-4">MCQ Test</h2>
+                <form action="{{ url_for('submit_test') }}" method="post">
+                    <div class="row">
+                        {% for question in questions %}
+                            <div class="col-md-12 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Question {{ loop.index }}: {{ question['question_text'] }}</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="question_{{ question['Id'] }}" id="option1_{{ question['Id'] }}" value="option1">
+                                            <label class="form-check-label" for="option1_{{ question['Id'] }}">
+                                                {{ question['option1'] }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="question_{{ question['Id'] }}" id="option2_{{ question['Id'] }}" value="option2">
+                                            <label class="form-check-label" for="option2_{{ question['Id'] }}">
+                                                {{ question['option2'] }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="question_{{ question['Id'] }}" id="option3_{{ question['Id'] }}" value="option3">
+                                            <label class="form-check-label" for="option3_{{ question['Id'] }}">
+                                                {{ question['option3'] }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="question_{{ question['Id'] }}" id="option4_{{ question['Id'] }}" value="option4">
+                                            <label class="form-check-label" for="option4_{{ question['Id'] }}">
+                                                {{ question['option4'] }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <input type="hidden" name="student_name" value="{{ student_name }}">
+                    <input type="hidden" name="student_email" value="{{ student_email }}">
+                    <button type="submit" class="btn btn-primary mt-4">Submit Test</button>
+                </form>
+            </div>
+        </section>
+        <footer class="site-footer">
+            <!-- Your Footer content -->
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
