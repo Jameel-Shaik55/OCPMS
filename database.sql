@@ -25,7 +25,7 @@ CREATE TABLE `coding_results` (
   `student_email` varchar(200) DEFAULT NULL,
   `company_email` varchar(200) DEFAULT NULL,
   `question_id` varchar(200) DEFAULT NULL,
-  `code` varchar(200) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
   `output` varchar(200) DEFAULT NULL,
   `expected_output` varchar(200) DEFAULT NULL,
   `match` varchar(200) DEFAULT NULL,

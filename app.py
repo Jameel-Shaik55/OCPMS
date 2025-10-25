@@ -18,9 +18,11 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 from docx import Document
 from reportlab.lib.pagesizes import letter
+from datetime import timedelta
+
 
 mydb = mysql.connector.connect(
-    host="localhost", user="root", passwd="", database="campus", charset='utf8', port=3306)
+    host="localhost", user="root", passwd="admin@123", database="campus", charset='utf8', port=3306)
 mycursor = mydb.cursor()
 
 UPLOAD_FOLDER = '/path/to/the/uploads'
@@ -30,6 +32,8 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'}
+app.permanent_session_lifetime = timedelta(hours=2)
+
 
 
 # home page
@@ -65,6 +69,7 @@ def signin():
 
         elif user_type == 'student':
             session['student'] = email
+            session.permanent = True
             sql = "SELECT * FROM students WHERE email=%s AND password=%s"
             mycursor.execute(sql, (email, password))
             results = mycursor.fetchall()
@@ -778,7 +783,7 @@ def stdrejected(id=0):
 def viewmcqquestions():
     # Check if company email is in the session
     if 'compyemail' not in session:
-        return redirect(url_for('companysignin'))
+        return redirect(url_for('companyregister'))
 
     # Fetch accepted student requests
     sql_student_requests = """
@@ -786,9 +791,14 @@ def viewmcqquestions():
         WHERE company_email=%s AND Status='Accepted'
     """
     student_requests = pd.read_sql_query(sql_student_requests, mydb, params=(session['compyemail'],))
+    # cursor = mydb.cursor(dictionary=True)
+    # cursor.execute(sql_student_requests, (session['compyemail'],))
+    # rows = cursor.fetchall()
+    # student_requests = pd.DataFrame(rows)
 
     # Fetch MCQ questions based on the accepted student requests
     mcq_questions = []
+     
     if not student_requests.empty:
         company_email = student_requests.iloc[0]['company_email']
         sql_mcq_questions = """
@@ -796,6 +806,12 @@ def viewmcqquestions():
             WHERE company_email=%s
         """
         mcq_questions = pd.read_sql_query(sql_mcq_questions, mydb, params=(company_email,))
+        print(mcq_questions)
+         
+        # cursor = mydb.cursor(dictionary=True)
+        # cursor.execute(sql_mcq_questions, (company_email,))
+        # rows = cursor.fetchall()
+        # mcq_questions = pd.DataFrame(rows)
 
     # Render template with MCQ questions
     return render_template(
@@ -803,11 +819,12 @@ def viewmcqquestions():
         cols=mcq_questions.columns.values, 
         rows=mcq_questions.values.tolist()
     )
-
+    
 
 @app.route('/stdview_mcq_questions')
 def stdview_mcq_questions():
     sql = "SELECT * FROM mcqquestion WHERE company_email = %s"
+    print(sql)
     company_email = session['compyemail']  # Temporarily hardcoded for testing purposes
     mycursor.execute(sql, (company_email,))
     data = mycursor.fetchall()
@@ -1240,7 +1257,8 @@ def viewselectedstudent():
 
 ##########autogenerate mcqs#########
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = ' AIzaSyDPezGbu9hmt414dS5sHH4GP55ut9SWBKo'
+print(GOOGLE_API_KEY)
 # Assuming genai is configured properly
 import google.generativeai as genai
 genai.configure(api_key=GOOGLE_API_KEY)
