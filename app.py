@@ -47,6 +47,7 @@ def signin():
         user_type = request.form['user_type']
         email = request.form['email']
         password = request.form['password']
+        print(password)
 
         if user_type == 'company':
             sql = "SELECT * FROM company WHERE email=%s AND password=%s"
