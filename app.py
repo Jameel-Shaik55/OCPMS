@@ -1259,7 +1259,6 @@ def viewselectedstudent():
 ##########autogenerate mcqs#########
 
 GOOGLE_API_KEY = ' AIzaSyDPezGbu9hmt414dS5sHH4GP55ut9SWBKo'
-print(GOOGLE_API_KEY)
 # Assuming genai is configured properly
 import google.generativeai as genai
 genai.configure(api_key=GOOGLE_API_KEY)
